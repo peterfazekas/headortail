@@ -13,7 +13,6 @@ public class Sequence {
     private static final String SEPARATOR = ", ";
     private static final String NEW_LINE = "\r\n";
 
-
     private final TossUp tossUp;
     private final List<String> sequences;
 
@@ -23,9 +22,14 @@ public class Sequence {
     }
 
     /**
-     * 7. feladat
-     *
-     * @return
+     * 7. feladat: Állítson elő és tároljon a memóriában 1000 db négy dobásból álló sorozatot!
+     * Számolja meg, hogy hány esetben követett egy háromtagú „tisztafej” sorozatot fej, illetve hány esetben írás!
+     * Az eredményt írassa ki a dobasok.txt állományba úgy, hogy az első sorba kerüljön az eredmény,
+     * a második sorban pedig egy-egy szóközzel elválasztva, egyetlen sorban szerepeljenek a dobássorozatok!
+     * <p>
+     * Például:
+     * FFFF: 12, FFFI: 14
+     * FIFI IIIF IFIF IIII FFII FFFF IIFI FFII FFFI …
      */
     private List<String> createSequences(final int count) {
         List<String> sequences = new ArrayList<>();
@@ -56,7 +60,7 @@ public class Sequence {
 
     private String countItems(final String pattern) {
         long count = sequences.stream().filter(i -> i.equals(pattern)).count();
-        return String.format("%s %d", pattern, count);
+        return String.format("%s: %d", pattern, count);
     }
 
     private String printItems() {
