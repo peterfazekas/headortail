@@ -8,14 +8,16 @@ import java.io.IOException;
  */
 public class ItemCountReader extends DataReader {
 
+    private static final String OUTPUT_TEXT = "A kísérlet %d dobásból állt.";
+
     @Override
-    public String getResult(final BufferedReader reader) throws IOException{
-        return String.format("A kísérlet %d dobásból állt.", itemCounter(reader));
+    public String getResult(final BufferedReader reader) throws IOException {
+        return String.format(OUTPUT_TEXT, itemCounter(reader));
     }
 
     private int itemCounter(final BufferedReader reader) throws IOException {
         int counter = 0;
-        while((reader.readLine())!= null) {
+        while ((reader.readLine()) != null) {
             counter++;
         }
         return counter;

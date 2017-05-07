@@ -1,7 +1,6 @@
 package hu.headortail.data.read;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -14,10 +13,8 @@ public abstract class DataReader {
 
     public String read(String source) {
         String result = "";
-        try (BufferedReader reader = new BufferedReader(new FileReader(PATH + source))){
+        try (BufferedReader reader = new BufferedReader(new FileReader(PATH + source))) {
             result = getResult(reader);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

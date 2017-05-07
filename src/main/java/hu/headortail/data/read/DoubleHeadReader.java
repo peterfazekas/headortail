@@ -8,13 +8,14 @@ import java.io.IOException;
  */
 public class DoubleHeadReader extends DataReader {
 
-    public static final String HEAD = "F";
-    public static final int DOUBLE = 2;
+    private static final int DOUBLE = 2;
+    private static final String HEAD = "F";
+    private static final String OUTPUT_TEXT = "A kísérlet során %d alkalommal dobtak pontosan két fejet egymás után.";
 
 
     @Override
     public String getResult(final BufferedReader reader) throws IOException {
-        return String.format("A kísérlet során %d alkalommal dobtak pontosan két fejet egymás után.", itemCounter(reader));
+        return String.format(OUTPUT_TEXT, itemCounter(reader));
     }
 
     private int itemCounter(final BufferedReader reader) throws IOException {

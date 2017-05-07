@@ -5,5 +5,5 @@ package hu.headortail.data.log;
  */
 public interface DataLogger {
 
-    void print(final String text) ;
+    void print(final String text);
 }

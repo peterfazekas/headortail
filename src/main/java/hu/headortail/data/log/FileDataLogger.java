@@ -19,7 +19,7 @@ public class FileDataLogger implements DataLogger {
 
     @Override
     public void print(final String text) {
-        try (PrintWriter log = new PrintWriter(new FileWriter(fileName))){
+        try (PrintWriter log = new PrintWriter(new FileWriter(fileName))) {
             log.print(text);
         } catch (IOException e) {
             e.printStackTrace();

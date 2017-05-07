@@ -26,7 +26,6 @@ public class TossUp {
     /**
      * 1. feladat: Szimuláljon egy pénzfeldobást, ahol azonos esélye van a fejnek és az írásnak is!
      * Az eredményt írassa ki a képernyőre a mintának megfelelően!
-     *
      */
     public String simulate() {
         return String.valueOf(RESULTS.charAt(random.nextInt(BOUND)));
@@ -35,6 +34,7 @@ public class TossUp {
     /**
      * 2. feladat: Kérjen be a felhasználótól egy tippet, majd szimuláljon egy pénzfeldobást!
      * Írassa ki képernyőre a felhasználó tippjét és a dobás eredményét is.
+     *
      * @param bet - a tipp
      */
     public String bet(final String bet) {

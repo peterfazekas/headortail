@@ -11,21 +11,23 @@ import java.util.Scanner;
 /**
  * @author Peter_Fazekas on 2017.05.06..
  */
-public class App {
+class App {
+
+    private static final String OUTPUT = "dobasok.txt";
 
     private final TossUp tossUp;
     private final Console console;
     private final DataLogger log;
 
+    private App() {
+        tossUp = new TossUp(new Random());
+        console = new Console(new Scanner(System.in));
+        log = new FileDataLogger(OUTPUT);
+    }
+
     public static void main(String[] args) {
         App app = new App();
         app.println();
-    }
-
-    public App() {
-        tossUp = new TossUp(new Random());
-        console = new Console(new Scanner(System.in));
-        log = new FileDataLogger("dobasok.txt");
     }
 
     private void println() {

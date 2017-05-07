@@ -9,7 +9,7 @@ public class Data {
 
     private static final String INPUT = "kiserlet.txt";
 
-    public String getData(final Source source){
+    public String getData(final Source source) {
         DataReader data = Source.getInstance(source);
         return data.read(INPUT);
     }

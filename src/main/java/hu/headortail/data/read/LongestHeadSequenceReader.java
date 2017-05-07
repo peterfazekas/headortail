@@ -8,7 +8,8 @@ import java.io.IOException;
  */
 public class LongestHeadSequenceReader extends DataReader {
 
-    public static final String HEAD = "F";
+    private static final String HEAD = "F";
+    private static final String OUTPUT_TEXT = "A leghosszabb tisztafej sorozat %d tagból áll, kezdete a(z) %d. dobás";
 
     @Override
     public String getResult(final BufferedReader reader) throws IOException {
@@ -30,7 +31,7 @@ public class LongestHeadSequenceReader extends DataReader {
                 headCounter = 0;
             }
         }
-        return String.format("A leghosszabb tisztafej sorozat %d tagból áll, kezdete a(z) %d. dobás", maxHead, maxPos);
+        return String.format(OUTPUT_TEXT, maxHead, maxPos - maxHead);
     }
 
 }

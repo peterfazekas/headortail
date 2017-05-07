@@ -6,12 +6,15 @@ import java.util.List;
 /**
  * @author Peter_Fazekas on 2017.05.06..
  */
-public class Sequence {
+class Sequence {
 
     private static final int LENGTH = 4;
     private static final int COUNT = 1000;
-    private static final String SEPARATOR = ", ";
+    private static final String SEPARATOR = " ";
+    private static final String COMMA = ", ";
     private static final String NEW_LINE = "\r\n";
+    private static final String FFFF = "FFFF";
+    private static final String FFFI = "FFFI";
 
     private final TossUp tossUp;
     private final List<String> sequences;
@@ -48,24 +51,21 @@ public class Sequence {
     }
 
     public String print() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(countItems("FFFF"))
-                .append(SEPARATOR)
-                .append(countItems("FFFI"))
-                .append(NEW_LINE)
-                .append(printItems());
-        return sb.toString();
-
+        return countItems(FFFF) + COMMA + countItems(FFFI) + NEW_LINE + printItems();
     }
 
     private String countItems(final String pattern) {
-        long count = sequences.stream().filter(i -> i.equals(pattern)).count();
+        long count = sequences.stream()
+                .filter(i -> i.equals(pattern))
+                .count();
         return String.format("%s: %d", pattern, count);
     }
 
     private String printItems() {
         StringBuilder sb = new StringBuilder();
-        sequences.stream().map(i -> i + " ").forEach(sb::append);
+        sequences.stream()
+                .map(i -> i + SEPARATOR)
+                .forEach(sb::append);
         return sb.toString();
     }
 
